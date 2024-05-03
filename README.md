@@ -21,3 +21,32 @@
 + 整合專案：管理與啟動多個前端專案
 
 此項目中所有專案會保存於 Git，並透過 Git 進行管理與整合。
+
+## 指令
+
+### Gitlab 專案管理服務
+
+由於本項目需要透過 git 管理專案溝通，因此請在執行範例前先啟動 gitlab 環境
+
++ ```cli infra gitlab up```：啟動 gitlab 服務
++ ```cli infra gitlab down```：關閉 gitlab 服務
++ ```cli infra gitlab init```：初始化 gitlab 內容，包括設定帳號密碼、存取代碼、群組、用戶、專案建置
++ ```cli infra gitlab commit```：將專案變更的內容上傳至 gitlab
+
+需要注意，由於 gitlab 啟動需要些許時間，在執行 ```init``` 前，請刷新 gitlab 網站直到登入畫面出現。
+
+### 專案管理服務
+
+## 專案
+
+```
+repository
+  └ app
+    └ gitlab
+  └ src
+    └ sgl
+    └ com
+    └ lib
+    └ dummy
+    └ intgr
+```
