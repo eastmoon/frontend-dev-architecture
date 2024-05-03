@@ -16,12 +16,12 @@ goto end
     goto end
 
 :short
-    echo Gitlab infrastructure.
+    echo Gitlab infrastructure for architecture demo.
     goto end
 
 :help
     echo This is a Command Line Interface with project %PROJECT_NAME%
-    echo Control gitlab infrastructure.
+    echo Control gitlab infrastructure for architecture demo.
     echo.
     echo Options:
     echo      --help, -h        Show more information with command.

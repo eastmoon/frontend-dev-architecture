@@ -28,10 +28,10 @@
 
 由於本項目需要透過 git 管理專案溝通，因此請在執行範例前先啟動 gitlab 環境
 
-+ ```cli infra gitlab up```：啟動 gitlab 服務
-+ ```cli infra gitlab down```：關閉 gitlab 服務
-+ ```cli infra gitlab init```：初始化 gitlab 內容，包括設定帳號密碼、存取代碼、群組、用戶、專案建置
-+ ```cli infra gitlab commit```：將專案變更的內容上傳至 gitlab
++ ```cli gitlab up```：啟動 gitlab 服務
++ ```cli gitlab down```：關閉 gitlab 服務
++ ```cli gitlab init```：初始化 gitlab 內容，包括設定帳號密碼、存取代碼、群組、用戶、專案建置
++ ```cli gitlab commit```：將專案變更的內容上傳至 gitlab
 
 需要注意，由於 gitlab 啟動需要些許時間，在執行 ```init``` 前，請刷新 gitlab 網站直到登入畫面出現。
 
