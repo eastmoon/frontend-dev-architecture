@@ -24,7 +24,7 @@ goto end
         ./conf/docker/react
 
     echo ^> Startup service
-    set DOCKER_CONTAINER_NAME=%PROJECT_NAME%-react-dev
+    set DOCKER_CONTAINER_NAME=%PROJECT_NAME%-react-com-dev
     docker rm -f %DOCKER_CONTAINER_NAME%
     docker run -ti --rm ^
         -v %CLI_DIRECTORY%\app:/app ^
