@@ -9,19 +9,18 @@ source ./src/git.sh
 
 # Execute script
 ## Retrieve gitlab version infromation
-echo-i $(gitlab-version)
+#echo-i $(gitlab-version)
 
 ## Remove .git directory
 rm -rf .git
 mkdir .git
 
-## Create repository
-create-project-with-readme devops RD
-create-project-with-readme devops-logs RD
-create-project-with-readme ws-core RD
-create-project-with-readme web-core RD
-create-project-with-readme iot-core RD
-create-project-with-readme infra-wrapper RD
+for d in $(find ./code -mindepth 1 -maxdepth 1 -type d);
+do
+    PROJECT_NAME=${d##*/}
+    echo "Create project '${PROJECT_NAME}'"
+    create-project-with-readme ${PROJECT_NAME} RD
+done
 
 ## Setting protect branch
 retrieve-project

@@ -10,18 +10,19 @@ goto end
 @rem ------------------- declare function -------------------
 
 :action
-    goto help
+    docker exec -ti %PROJECT_NAME%-infra-gitlab bash x-sync-projects.sh
+    goto end
 
 :args
     goto end
 
 :short
-    echo Startup.
+    echo Commit code.
     goto end
 
 :help
     echo This is a Command Line Interface with project %PROJECT_NAME%
-    echo Startup gitlab at '%PROJECT_NAME%-network' bridge network.
+    echo Commit code form 'src' folder.
     echo.
     echo Options:
     echo      --help, -h        Show more information with command.
