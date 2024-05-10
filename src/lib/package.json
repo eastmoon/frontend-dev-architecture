@@ -1,7 +1,7 @@
 {
-  "name": "custom-lib",
+  "name": "clibs",
   "version": "1.0.0",
-  "description": "Custom library",
+  "description": "Common JS libraries",
   "author": "jacky.chen",
   "license": "MIT",
   "files": [
