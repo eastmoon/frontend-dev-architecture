@@ -1,0 +1,11 @@
+{
+  "name": "custom-lib",
+  "version": "1.0.0",
+  "description": "Custom library",
+  "author": "jacky.chen",
+  "license": "MIT",
+  "files": [
+    "app/src"
+  ],
+  "main": "./app/src/index.js"
+}
