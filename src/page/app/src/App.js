@@ -4,7 +4,8 @@ import clibs from 'clibs';
 
 function App() {
   console.log(clibs);
-  clibs.utils.echoi("1234");
+  console.log(clibs.pattern);
+  clibs.utils.echoi("12345");
   clibs.utils.echow("5678");
   clibs.utils.echoe("0912");
   return (
