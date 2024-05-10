@@ -8,11 +8,10 @@ source ./src/utils.sh
 source ./src/conf.sh
 # Execute script
 ## Initial root password
-ROOT_PASSWORD='1234%^&*QWERtyui'
-echo-i "Change Root passowrd to ${ROOT_PASSWORD}"
+echo-i "Change Root passowrd to ${GIT_ROOT_PASSWORD}"
 CMD="user = User.find_by_username('root');"
-CMD="${CMD} user.password = '${ROOT_PASSWORD}';"
-CMD="${CMD} user.password_confirmation = '${ROOT_PASSWORD}';"
+CMD="${CMD} user.password = '${GIT_ROOT_PASSWORD}';"
+CMD="${CMD} user.password_confirmation = '${GIT_ROOT_PASSWORD}';"
 CMD="${CMD} user.save!"
 echo ${CMD}
 gitlab-rails runner "${CMD}"
