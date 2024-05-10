@@ -24,6 +24,7 @@ goto end
         ./conf/docker/react
 
     echo ^> Startup service
+    set INFRA_DOCKER_NETWORK=frontend-dev-architecture-network
     set DOCKER_CONTAINER_NAME=%PROJECT_NAME%-react-page-dev
     docker rm -f %DOCKER_CONTAINER_NAME%
     docker run -ti --rm ^
@@ -33,6 +34,7 @@ goto end
         -e PORT=%2 ^
         -p %2:%2 ^
         -w "/app" ^
+        --network %INFRA_DOCKER_NETWORK% ^
         --name %DOCKER_CONTAINER_NAME% ^
         %DOCKER_IMAGE_NAME% %1
     goto end

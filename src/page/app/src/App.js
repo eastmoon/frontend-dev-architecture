@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import clibs from 'clibs';
 
 function App() {
+  console.log(clibs);
+  clibs.utils.echoi("1234");
+  clibs.utils.echow("5678");
+  clibs.utils.echoe("0912");
   return (
     <div className="App">
       <header className="App-header">
