@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Webpack App</title>
+    </head>
+    <body>
+        <h1>Webpack hello world!</h1>
+        <h2>Tip: Check your console</h2>
+    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("Hello World!");
+            console.log(window.clibs);
+            console.log(window.clibs.Utils);
+            console.log(window.clibs.Pattern);
+            console.log(window.clibs.Application);
+            window.clibs.Utils.echoi("Show information message");
+            window.clibs.Utils.echow("Show warning message");
+            window.clibs.Utils.echoe("Show error message");
+        });
+    </script>
+</html>

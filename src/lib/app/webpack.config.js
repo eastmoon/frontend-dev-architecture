@@ -11,17 +11,17 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
     entry: {
-      index: './src/index.js'
+      clibs: './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
-        chunkFilename: '[id]-[chunkhash].js',
+        library: '[name]'
     },
     devServer: {
         open: true,
         host: '0.0.0.0',
-        port: 8082,
+        port: process.env.PORT,
         watchFiles: ['src/**/*.js', 'src/**/*.html'],
         liveReload: true,
     },
@@ -30,6 +30,10 @@ const config = {
       poll: 1000,
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+        }),
+
         new MiniCssExtractPlugin(),
 
         // Add your plugins here
@@ -85,8 +89,6 @@ const config = {
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-
-
     } else {
         config.mode = 'development';
     }
