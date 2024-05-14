@@ -30,12 +30,23 @@
 
 + ```cli gitlab up```：啟動 gitlab 服務
 + ```cli gitlab down```：關閉 gitlab 服務
++ ```cli gitlab info```：顯示 gitlab 的帳號與存取代碼的設定資訊
 + ```cli gitlab init```：初始化 gitlab 內容，包括設定帳號密碼、存取代碼、群組、用戶、專案建置
 + ```cli gitlab commit```：將專案變更的內容上傳至 gitlab
+    - ```cli gitlab commit --repo=<target_repository```：指定特定專案上傳至 gitlab
 
 需要注意，由於 gitlab 啟動需要些許時間，在執行 ```init``` 前，請刷新 gitlab 網站直到登入畫面出現。
 
 ### 專案管理服務
+
+專案範例皆依據開發運維設計需要提供管理指令，其主要指令如下：
+
++ ```cli dev```：啟動開發伺服器
+    - ```cli dev --into```：啟動開發環境，並進入其中，此模式若要啟動開發伺服器請使用 ```npm run start```
+    - ```cli dev --port=[number]```：啟動的開發環境與開發伺服器會使用的連結埠，若以此設定，則環境啟動預設為 3000
++ ```cli publish```：啟動開發環境並發佈專案內容至目錄 ```cache/dist``` 中
+
+實際執行細節差異可詳見後續專案項目說明。
 
 ## 專案
 
@@ -44,9 +55,67 @@ repository
   └ app
     └ gitlab
   └ src
-    └ sgl
+    └ page
     └ com
     └ lib
     └ dummy
     └ intgr
 ```
+
+### 頁面專案
+
+前端網頁的進入點是以頁面專案構成，無論是傳統 DHTML 概念到主流前端框架 ( Vue、React、Angular ) 都是以頁面為基準，從而設計的單頁面應用程式 ( Single Page Application、SPA )。
+
+頁面專案範例 [src/page](./src/page) 使用 React 框架設計。
+
+### 元件專案
+
+### 函式庫專案
+
+前端網頁的函式庫專案，是將專案中共通的 JavaScript 函式、類別庫整理成專案，並用作為頁面、元件專案的相依第三方載入。
+
+若要使用函式庫專案，可以使用 ```npm``` 套件管理工具，指定 gitlab 主機中的專案進行下載。
+
+```
+npm install --save git+http://[token-name]:[token]@[git-server-address]/[git-repository]#[git-branch]
+```
+
+本專案啟動的 Gitlab 會產生如下數劇供組合完整句型：
++ token name: automation-token,
++ token: 12345QWERTasdfgZXCVB
++ git-server-address: infra-gitlab
++ git-repository: RD/lib
++ git-branch: main
++ 句型 ```npm install --save git+http://automation-token:12345QWERTasdfgZXCVB@infra-gitlab/RD/lib#main```
+
+頁面專案範例 [src/lib](./src/lib)，詳細設計細節可參考內文說明。
+
+### 元件庫專案
+
+前端網頁的元件庫專案，不同於函式庫專案的使用方式，主要是將元件庫內容進行編譯後放置於網頁檔案伺服器 ( Http Fils Server、HFS )，以此作為頁面、元件專案的相依第三方載入
+
+若要使用函式庫專案，可以使用 ```npm``` 套件管理工具，指定 hfs 主機中的專案進行下載。
+
+```
+npm install --save http://[http-file-server-address]/[project-name].tgz
+```
+
+元件庫的建立需要參考各框架的專案設定方式，以確保編譯後的內容符合頁面、元件專案需要。
+
++ [Vue](https://cli.vuejs.org/guide/build-targets.html#library)
++ [Angular](https://angular.io/guide/creating-libraries)
+
+
+### 假資料專案
+
+### 整合專案
+
+## 文獻
+
++ [NPM Docs](https://docs.npmjs.com/about-npm)
+    - [configuration package.json](https://docs.npmjs.com/cli/v10/configuring-npm/package-json)
+    - [configuration .npmrc](https://docs.npmjs.com/cli/v10/configuring-npm/npmrc)
++ [Setting Up a Custom JS Library Repo](https://community.appsmith.com/tutorial/setting-custom-js-library-repo)
++ [Creating Custom JavaScript Libraries: A Guide to Reusable and Efficient Code](https://blog.bitsrc.io/creating-custom-javascript-libraries-a-guide-to-reusable-and-efficient-code-2bcaff45339d)
++ [How to use a package from the git repository as a node module](https://medium.com/pravin-lolage/how-to-use-your-own-package-from-git-repository-as-a-node-module-8b543c13957e)
++ [How to Create and Publish a React Component Library](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe)
