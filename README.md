@@ -66,7 +66,7 @@ repository
 
 前端網頁的進入點是以頁面專案構成，無論是傳統 DHTML 概念到主流前端框架 ( Vue、React、Angular ) 都是以頁面為基準，從而設計的單頁面應用程式 ( Single Page Application、SPA )。
 
-頁面專案範例 [src/page](./src/page) 使用 React 框架設計。
+頁面專案範例 [page](./src/page) 使用 React 框架設計，詳細內容參考連結。
 
 ### 元件專案
 
@@ -88,7 +88,7 @@ npm install --save git+http://[token-name]:[token]@[git-server-address]/[git-rep
 + git-branch: main
 + 句型 ```npm install --save git+http://automation-token:12345QWERTasdfgZXCVB@infra-gitlab/RD/lib#main```
 
-頁面專案範例 [src/lib](./src/lib)，詳細設計細節可參考內文說明。
+函式庫專案範例 [lib](./src/lib)，詳細設計細節可參考連結內文說明。
 
 ### 元件庫專案
 
