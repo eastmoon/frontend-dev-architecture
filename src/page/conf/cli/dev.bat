@@ -34,6 +34,7 @@ goto end
     echo Options:
     echo      --help, -h        Show more command information.
     echo      --into            When container startup then going to container and don't startup dev-server.
+    echo      --port            Setting dev-server port ( Default 3000 ).
     call %CLI_SHELL_DIRECTORY%\utils\tools.bat command-description %~n0
     goto end
 
