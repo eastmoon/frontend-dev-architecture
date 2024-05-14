@@ -1,3 +1,3 @@
-exports.utils = require('./utils');
-exports.application = require('./application').default;
-exports.pattern = require('./pattern');
+exports.Utils = require('./utils');
+exports.Application = require('./application').default;
+exports.Pattern = require('./pattern');

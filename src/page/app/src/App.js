@@ -1,13 +1,11 @@
 // Import library
 import React from 'react';
 import './App.css';
-import clibs from 'clibs';
+import {Application, Utils} from 'clibs';
 import StartupCommand from "./command/startup";
 import AppService from './services/app';
 
 // Declare variable
-const Utils = clibs.utils;
-const Application = clibs.application;
 
 // Declare class
 class App extends React.Component {

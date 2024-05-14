@@ -1,14 +1,11 @@
 // Import library
-import clibs from 'clibs';
+import {Application, Utils, Pattern} from 'clibs';
 import AppService from '../services/app';
 
 // Declare variable
-const Command = clibs.pattern.command;
-const Application = clibs.application;
-const Utils = clibs.utils;
 
 // Declare class
-export default class StartupCommand extends Command {
+export default class StartupCommand extends Pattern.Command {
     //
     constructor() {
         super("StartupCommand");
