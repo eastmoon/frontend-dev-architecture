@@ -1,5 +1,3 @@
-'use strict';
-
 exports.utils = require('./utils');
-exports.application = require('./application');
+exports.application = require('./application').default;
 exports.pattern = require('./pattern');

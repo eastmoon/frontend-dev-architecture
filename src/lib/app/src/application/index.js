@@ -7,16 +7,16 @@
 import Singleton from "../pattern/singleton";
 import Container from "../pattern/container";
 
-// Singleton class
+// Declare class
 export default class Application extends Singleton {
     // Static attribute, Class static name.
     static get appName() {
         return "System.Application";
     }
 
-    install() {
+    initial() {
         // console.log("MVC initial");
-        super.install();
+        super.initial();
         // If re-new class, constructor will duplicate call.
         // This issue have two solution.
         // 1. never use new class to retrieve instance
