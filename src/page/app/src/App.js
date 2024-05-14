@@ -1,19 +1,37 @@
+// Import library
 import React from 'react';
 import './App.css';
 import clibs from 'clibs';
+import StartupCommand from "./command/startup";
+import AppService from './services/app';
 
+// Declare variable
+const Utils = clibs.utils;
+const Application = clibs.application;
+
+// Declare class
 class App extends React.Component {
   //
   constructor(props) {
       super(props);
-      console.log(clibs);
-      console.log(clibs.pattern);
-      clibs.utils.echoi("1234");
-      clibs.utils.echow("5678");
-      clibs.utils.echoe("0912");
       this.state = {
           initial: false
       };
+      this.startupCmd = null;
+  }
+  async componentDidMount() {
+      if ( this.startupCmd === null && ! this.state.initial ) {
+          // Execute startup command
+          this.startupCmd = new StartupCommand();
+          await this.startupCmd.execute();
+          Utils.echoi("Show information message");
+          Utils.echow("Show warning message");
+          Utils.echoe("Show error message;");
+          Utils.echoi("startup complete");
+          // App views initial complete, change initial state
+          this.setState({initial: true});
+
+      }
   }
   // Component render
   renderInit() {
@@ -33,9 +51,17 @@ class App extends React.Component {
       )
   }
   renderApp() {
+      //
+      let title = ""
+      if (Application.models.has(AppService.Name)) {
+          Utils.echoi(AppService.Name);
+          const as = Application.models.retrieve(AppService.Name);
+          console.log(as);
+          title = as.message;
+      }
       return (
-          <div className="w-full h-full">
-              Hello world !!!!
+          <div className="w-full h-full p-2">
+              {title}
           </div>
       )
   }
