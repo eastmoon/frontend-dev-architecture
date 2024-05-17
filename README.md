@@ -43,7 +43,7 @@
 
 + ```cli dev```：啟動開發伺服器
     - ```cli dev --into```：啟動開發環境，並進入其中，此模式若要啟動開發伺服器請使用 ```npm run start```
-    - ```cli dev --port=[number]```：啟動的開發環境與開發伺服器會使用的連結埠，若以此設定，則環境啟動預設為 3000
+    - ```cli dev --port=[number]```：啟動的開發環境與開發伺服器會使用的連結埠，若以此設定，則環境啟動預設為各專案自行設定
 + ```cli publish```：啟動開發環境並發佈專案內容至目錄 ```cache/dist``` 中
 
 實際執行細節差異可詳見後續專案項目說明。
@@ -66,7 +66,7 @@ repository
 
 前端網頁的進入點是以頁面專案構成，無論是傳統 DHTML 概念到主流前端框架 ( Vue、React、Angular ) 都是以頁面為基準，從而設計的單頁面應用程式 ( Single Page Application、SPA )。
 
-頁面專案範例 [page](./src/page) 使用 React 框架設計，詳細內容參考連結。
+頁面專案範例 [page](./src/page) 使用 React 框架設計，詳細內容參考連結；開發指令 ```cli dev``` 預設啟動連結埠 3000。
 
 ### 元件專案
 
@@ -88,7 +88,7 @@ npm install --save git+http://[token-name]:[token]@[git-server-address]/[git-rep
 + git-branch: main
 + 句型 ```npm install --save git+http://automation-token:12345QWERTasdfgZXCVB@infra-gitlab/RD/lib#main```
 
-函式庫專案範例 [lib](./src/lib)，詳細設計細節可參考連結內文說明。
+函式庫專案範例 [lib](./src/lib)，詳細設計細節可參考連結內文說明；開發指令 ```cli dev``` 預設啟動連結埠 3003。
 
 ### 元件庫專案
 

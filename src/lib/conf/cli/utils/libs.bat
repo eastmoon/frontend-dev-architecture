@@ -18,6 +18,7 @@ goto end
     )
 
     echo ^> Build image
+    set PROJECT_NAME=frontend-dev-architecture
     set DOCKER_IMAGE_NAME=node.sdk:%PROJECT_NAME%
     docker build --rm^
         -t %DOCKER_IMAGE_NAME%^

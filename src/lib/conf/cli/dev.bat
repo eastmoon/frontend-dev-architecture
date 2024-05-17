@@ -3,7 +3,7 @@
 
 @rem ------------------- declare variable -------------------
 if not defined TARGET_PROJECT_COMMAND (set TARGET_PROJECT_COMMAND=node)
-if not defined TARGET_PROJECT_DEV_SERVER_PORT (set TARGET_PROJECT_DEV_SERVER_PORT=3000)
+if not defined TARGET_PROJECT_DEV_SERVER_PORT (set TARGET_PROJECT_DEV_SERVER_PORT=3003)
 
 @rem ------------------- execute script -------------------
 call :%*
