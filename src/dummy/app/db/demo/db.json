@@ -1,0 +1,10 @@
+{
+    "name": "account db",
+    "success": true,
+    "errorCode": null,
+    "message": null,
+    "value": {
+        "paymentBalance": 999742,
+        "casualBalance": null
+    }
+}
