@@ -125,6 +125,10 @@ npm install --save http://[http-file-server-address]/[project-name].tgz
 
 ### 整合專案
 
+前端網頁在開發或執行階段會是不同型態的內容，嚴格來說開發階段會使用各自的開發伺服器，但執行階段時皆會是編譯完成的檔案並基於目錄結構；考慮這樣的開發與執行狀況，整合專案的執行會是基於一份設定檔，下載與啟動必要的專案。
+
+函式庫專案範例 [intgr](./src/intgr)，詳細設計細節可參考連結內文說明；開發指令 ```cli dev``` 預設啟動連結埠 8000。
+
 ## 文獻
 
 + [NPM Docs](https://docs.npmjs.com/about-npm)
