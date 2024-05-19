@@ -15,12 +15,18 @@
 基於本專案設計概念，前端產品是由下列類型前端專案整合而成：
 
 + 頁面專案：基於前端框架 React、Vue、Angular 為內容的 SPA 項目專案
-+ 元件專案：基於前端框架 React、Vue、Angular 為內容的 WebComponent 項目專案
++ 模組專案：基於前端框架 React、Vue、Angular 為內容的 WebComponent 項目專案
 + 函式庫專案：基於 Pure JavaScript 或前端框架 React、Vue、Angular 為內容的項目專案
++ 元件庫專案：基於前端框架 React、Vue、Angular 為內容的 Component 項目專案
 + 假資料專案：偽裝資料伺服器，提供前端在開發階段所需的測試資料
 + 整合專案：管理與啟動多個前端專案
 
-此項目中所有專案會保存於 Git，並透過 Git 進行管理與整合。
+![](./doc/img/architecture-concept.png)
+
+在此架構概念中，當前端專案規模逐漸擴大，其整體架構會如上圖將專案拆分。
+
++ 依據專案多樣性而抽象成的共用庫，此項目保存於 Git、HFS 或開放至 NPM，並透過 package 引入資源。
++ 依據動態構築需要分離頁面與模組，在經由 Nginx 進行動態整合。
 
 ## 指令
 
@@ -68,7 +74,11 @@ repository
 
 頁面專案範例 [page](./src/page) 使用 React 框架設計，詳細內容參考連結；開發指令 ```cli dev``` 預設啟動連結埠 3000。
 
-### 元件專案
+### 模組專案
+
+前端網頁基於微前端構築的模組專案，實務使用 WebComponent 技術，單相比製作僅有一個功能的元件，更適合設計用於動態組合畫面服務模組的插件庫。
+
+頁面專案範例 [mod](./src/mod) 使用 React 框架設計，詳細內容參考連結；開發指令 ```cli dev``` 預設啟動連結埠 3001。
 
 ### 函式庫專案
 
