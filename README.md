@@ -62,8 +62,9 @@ repository
     └ gitlab
   └ src
     └ page
-    └ com
+    └ mod
     └ lib
+    └ com
     └ dummy
     └ intgr
 ```
