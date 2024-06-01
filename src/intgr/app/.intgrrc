@@ -1,5 +1,5 @@
 glib$GIT:PRD@RD/lib#main
 page$LOC:DEV@RD/page#main
 dummy$RD/dummy#main
-pagex$DEV@RD/page#main
-pagexx$LOC@RD/page#main
+pagex$DEV@RD/pagex#release
+pagexx$LOC@RD/pagexx

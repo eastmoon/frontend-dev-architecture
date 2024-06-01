@@ -107,8 +107,26 @@ goto end
     @rem find repository with name
     set REPO_DIR=%REPO_ROOT_DIR%\%REPO_NAME%
     if not exist %REPO_DIR% (
-        @rem repository not find, call git clone.
         echo %REPO_NAME% not find in %REPO_ROOT_DIR%
+        if "%REPO_OP_LOC%"=="GIT" (
+            @rem repository not find, call git clone.
+            for /f "tokens=1,2 delims=#" %%i in ("%REPO_PATH%") do (
+                set GIT_REPO_PATH=%%i
+                set GIT_REPO_BRANCH=%%j
+                if not defined GIT_REPO_BRANCH (set GIT_REPO_BRANCH=main)
+                @rem echo "git clone --branch !GIT_REPO_BRANCH! http://%GIT_ACCESS_NAME%:%GIT_ACCESS_TOKEN%@%GIT_SERVER%/!GIT_REPO_PATH! %REPO_NAME%"
+                cd %REPO_ROOT_DIR%
+                git clone --branch !GIT_REPO_BRANCH! http://%GIT_ACCESS_NAME%:%GIT_ACCESS_TOKEN%@%GIT_SERVER%/!GIT_REPO_PATH! %REPO_NAME%
+                cd %CLI_DIRECTORY%
+            )
+        )
+    ) else (
+        if "%REPO_OP_LOC%"=="GIT" (
+            cd %REPO_DIR%
+            git fetch
+            git pull
+            cd %CLI_DIRECTORY%
+        )
     )
 
     @rem find repository and devops CLI fine.

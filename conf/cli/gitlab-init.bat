@@ -10,8 +10,8 @@ goto end
 @rem ------------------- declare function -------------------
 
 :action
-    @rem docker exec -ti %PROJECT_NAME%-infra-gitlab bash 0-initial-account.sh
-    @rem docker exec -ti %PROJECT_NAME%-infra-gitlab bash 1-initial-group-and-user.sh
+    docker exec -ti %PROJECT_NAME%-infra-gitlab bash 0-initial-account.sh
+    docker exec -ti %PROJECT_NAME%-infra-gitlab bash 1-initial-group-and-user.sh
     docker exec -ti %PROJECT_NAME%-infra-gitlab bash 2-initial-projects.sh
     goto end
 
