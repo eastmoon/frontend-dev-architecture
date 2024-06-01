@@ -1,0 +1,3 @@
+GIT_SERVER=infra-gitlab
+GIT_ACCESS_NAME=automation-token
+GIT_ACCESS_TOKEN=12345QWERTasdfgZXCVB
