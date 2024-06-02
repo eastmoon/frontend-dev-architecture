@@ -2,6 +2,24 @@
 
 本專案用於整合開發與發佈前端專案，利用設定檔的規劃，將需要整合的專案下載，並基於開發運維 ( DevOps ) 的命令介面執行對應的命令。
 
+## 整合定義檔
+
+整合需要設定 Git 相關資訊的 .gitrc，以及專案設定的 .intgrrc 相關資訊。
+
+#### .gitrc 格式
+
+Git 對應資訊應為目標 Gitlab 主機的存取資料。
+
+```
+GIT_SERVER=<server-address>
+GIT_ACCESS_NAME=<gitlab-access-name>
+GIT_ACCESS_TOKEN=<gitlab-access-token>
+```
+
+#### .intgrrc 格式
+
+整合專案會基於專案取得與啟動需求撰寫下述定義檔。
+
 ```
 <ROUTE-NAME>$GIT:DEV@<GROUP>/<REPO>#<BRANCH>
 <ROUTE-NAME>$LOC:PRD@<GROUP>/<REPO>#<BRANCH>
