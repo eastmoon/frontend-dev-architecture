@@ -10,7 +10,7 @@ goto end
 @rem ------------------- declare function -------------------
 
 :action
-    echo Publish project %TARGET_PROJECT%
+    echo Publish project %PROJECT_NAME%
     call %CLI_SHELL_DIRECTORY%\utils\libs.bat exec-docker build 3000
     goto end
 

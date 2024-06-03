@@ -37,7 +37,7 @@ goto end
     echo ^> Startup service
     set INFRA_DOCKER_NETWORK=frontend-dev-architecture-network
     set DOCKER_CONTAINER_NAME=%PROJECT_NAME%-%VAR_SRV_HOSTNAME%
-    docker rm -f %DOCKER_CONTAINER_NAME%
+    call :remove-docker %VAR_SRV_HOSTNAME%
     docker run %VAR_SRV_STATE% --rm ^
         -v %CLI_DIRECTORY%\app:/app ^
         -v %CLI_DIRECTORY%\cache\dist:/app/build ^
@@ -50,6 +50,19 @@ goto end
         --name %DOCKER_CONTAINER_NAME% ^
         %DOCKER_IMAGE_NAME% %VAR_SRV_CMD%
     goto end
+
+:remove-docker
+    @rem Declare variable
+    set VAR_SRV_HOSTNAME=%1
+    set PROJECT_NAME=frontend-dev-architecture
+    set DOCKER_CONTAINER_NAME=%PROJECT_NAME%-%VAR_SRV_HOSTNAME%
+
+    @rem Remove service
+    for /f "tokens=1" %%p in ('docker ps --filter "name=%DOCKER_CONTAINER_NAME%" --format "{{.ID}}"') do (
+        docker rm -f %%p
+    )
+    goto end
+
 
 @rem ------------------- End method-------------------
 
